@@ -16,14 +16,17 @@ test("apply conflict colors to conflicting events", () => {
             start: '2021-09-02T00:00',
             end: '2021-09-05T00:00',
             title: 'Event 1',
+            conflicted:false
         }, {
             start: '2021-09-04T00:00',
             end: '2021-09-07T00:00',
             title: 'Event 2',
+            conflicted:false
         }, {
             start: '2021-09-20T00:00',
             end: '2021-09-21T00:00',
             title: 'Event 3',
+            conflicted:false
         }
     ];
     const myEventsWithConflicts= [
@@ -31,16 +34,19 @@ test("apply conflict colors to conflicting events", () => {
             start: '2021-09-02T00:00',
             end: '2021-09-05T00:00',
             title: 'Event 1',
+            conflicted:true,
             color:"yellow"
         }, {
             start: '2021-09-04T00:00',
             end: '2021-09-07T00:00',
             title: 'Event 2',
+            conflicted:true,
             color:"yellow"
         }, {
             start: '2021-09-20T00:00',
             end: '2021-09-21T00:00',
             title: 'Event 3',
+            conflicted:false,
             color:"blue"
         }
     ];;

@@ -41,12 +41,13 @@ export const applyConflicts = (events: MbscCalendarEvent[]): MbscCalendarEvent[]
                 }
             })
             if (event.conflicted) {
-                event.color = "yellow"
+                event.color = '#d6d145';
             } else {
-                event.color = "blue"
+                event.color = '#4981d6';
             }
         }
     );
+
     return events
 }
 

@@ -13,6 +13,13 @@ setOptions({
     theme: 'ios',
     themeVariant: 'light'
 });
+
+enum EventColor {
+  Request = "#5D6A18",
+  RangeMaintenance = "#B29167",
+  Info = "#91B7CA",
+}
+
 export const applyConflicts = (events: MbscCalendarEvent[]): MbscCalendarEvent[] => {
     function checkOverlap(events: MbscCalendarEvent[]): MbscCalendarEvent[] {
         const overlap: MbscCalendarEvent[] = [];
@@ -57,7 +64,7 @@ export const App: React.FC = () => {
             start: '2021-09-02T00:00',
             end: '2021-09-05T00:00',
             title: 'Event 1',
-            resource: 1
+            resource: 5
         }, {
             start: '2021-09-10T09:00',
             end: '2021-09-15T15:00',
@@ -117,72 +124,39 @@ export const App: React.FC = () => {
     }, []);
 
 
-    const myResources = React.useMemo<MbscResource[]>(() => {
-        return [{
-            id: 1,
-            name: 'Resource 1',
-            color: '#1dab2f'
-        }, {
-            id: 2,
-            name: 'Resource 2',
-            color: '#76e083'
-        }, {
-            id: 3,
-            name: 'Resource 3',
-            color: '#4981d6'
-        }, {
-            id: 4,
-            name: 'Group 1',
-            color: '#ff1717',
-            children: [{
-                id: 11,
-                name: 'Resource 4',
-                color: '#f7961e',
-            }, {
-                id: 12,
-                name: 'Resource 5',
-                color: '#34c8e0',
-            }]
-        }, {
-            id: 5,
-            name: 'Group 2',
-            collapsed: true,
-            children: [{
-                id: 51,
-                name: 'Group 3',
-                color: '#af0000',
+    const rangeResources = React.useMemo<MbscResource[]>(() => {
+        return [
+            {
+                id: 1,
+                name: 'SR-3 Package',
+                color: '#ff1717',
                 children: [{
-                    id: 511,
-                    name: 'Resource 6',
-                    color: '#843100',
+                  id: 2,
+                  name: 'SB/SR-3-SQD/LF',
+                  color: '#f7961e',
                 }, {
-                    id: 512,
-                    name: 'Resource 7',
-                    color: '#4caf00',
+                  id: 3,
+                  name: 'SB/SR-FP 101 (Artillery)',
+                  color: '#f7961e',
                 }, {
-                    id: 513,
-                    name: 'Resource 8',
-                    color: '#7056ff',
+                  id: 4,
+                  name: 'SB/SR-FP 102 (LZ)/(Artillery)',
+                  color: '#f7961e',
+                }, {
+                  id: 5,
+                  name: 'SB/SR-FP-106 (Artillery)',
+                  color: '#f7961e',
+                }, {
+                  id: 6,
+                  name: 'SB/SR-FP-107 (Artillery)',
+                  color: '#f7961e',
+                }, {
+                  id: 7,
+                  name: 'SB/SR/OP-KOLE',
+                  color: '#f7961e',
                 }]
-            }, {
-                id: 52,
-                name: 'Resource 9',
-                color: '#4caf00',
-            }, {
-                id: 53,
-                name: 'Resource 10',
-                color: '#e20000',
             }]
-        }, {
-            id: 6,
-            name: 'Resource 11',
-            color: '#d6d145'
-        }, {
-            id: 7,
-            name: 'Resource 12',
-            color: '#e25dd2'
-        }]
-    }, []);
+      }, []);
 
     const myInvalid = React.useMemo<any>(() => {
         return [
@@ -199,6 +173,7 @@ export const App: React.FC = () => {
             timeline: {
                 type: 'month',
                 eventList: true,
+                popover: true,
             },
         };
     }, []);
@@ -213,7 +188,7 @@ export const App: React.FC = () => {
             dragToResize={true}
             view={view}
             data={myEvents}
-            resources={myResources}
+            resources={rangeResources}
             invalid={myInvalid}
             onEventCreateFailed={() => {
                 toast({message: "RANGE MAINT"})

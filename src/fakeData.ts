@@ -218,6 +218,13 @@ const fakeMaintenance = [{
     color: EventColor.RangeMaintenance,
     resource: 12
   },
+  {
+    start: '2022-05-30T00:00',
+    end: '2022-06-11T23:59',
+    title: 'RANGE MAINTENANCE',
+    color: EventColor.RangeMaintenance,
+    resource: 12
+  },
 ];
 
 export const fakeEvents = [

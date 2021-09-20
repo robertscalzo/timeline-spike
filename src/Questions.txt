@@ -1,0 +1,9 @@
+Questions for Mobiscroll:
+
+Is it possible to have greater than one month (multiple months/quarter/year) view in timeline? (Similar outerDays for monthly calendar view)
+
+Is it possible to make the scroll bar always visible? If so, how?
+
+Is it possible to restrict date selections to a specific timeframe without using a controlled component approach to selectedDate?
+    Is there something within the API that would allow us to define a viewable date range?
+
